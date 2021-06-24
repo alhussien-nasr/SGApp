@@ -8,7 +8,8 @@ import {
 } from "react-native";
 import { Card } from "./Card";
 import {useNavigation} from '@react-navigation/native'
-export const   ResultList = ({ title, results }) => {
+export const   ResultList = ({ title, results}) => {
+  if(!results.length){return null}
   const navigation=useNavigation()
   return (
     <View style={styles.container}>
@@ -19,7 +20,7 @@ export const   ResultList = ({ title, results }) => {
         data={results}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity onPress={()=>navigation.navigate('Details')}>
+            <TouchableOpacity onPress={()=>navigation.navigate('Details',{id:item.id})}>
               <Card result={item}  />
             </TouchableOpacity>
           );

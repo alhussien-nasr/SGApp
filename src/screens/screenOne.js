@@ -31,10 +31,11 @@ const ScreenOne = () => {
   };
   return (
     <View>
-      <InputCom term={term} onChangeTerm={setTerm} onSubmit={searchApi} />
+      <InputCom term={term} onChangeTerm={setTerm} onSubmit={()=>searchApi(term)} />
       {error ? <Text>{error}</Text> : null}
       <ScrollView>
         <ResultList
+           
           results={SearchFilter("$")}
           title={"Cost Effective"}
         />
@@ -46,6 +47,11 @@ const ScreenOne = () => {
           results={SearchFilter("$$$")}
           title={"Big Spender"}
         />
+                <ResultList
+          results={SearchFilter("$$$$")}
+          title={"extra Spender"}
+        />
+
       </ScrollView>
     </View>
   );
