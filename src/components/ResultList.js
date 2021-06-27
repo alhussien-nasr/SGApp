@@ -18,6 +18,7 @@ export const   ResultList = ({ title, results}) => {
         showsHorizontalScrollIndicator={false}
         horizontal
         data={results}
+        keyExtractor={result=>{result.id}}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity onPress={()=>navigation.navigate('Details',{id:item.id})}>

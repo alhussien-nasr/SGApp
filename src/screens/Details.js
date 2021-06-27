@@ -28,7 +28,7 @@ console.log(id)
   return (
     <View>
       <Text style={{fontSize:30 , fontWeight:'bold' , alignSelf:'center'}} >{results.name}</Text>
-      <FlatList data={results.photos} renderItem={({item})=>{
+      <FlatList data={results.photos} keyExtractor={(result)=>{result.id}} renderItem={({item})=>{
        return <Image source={{uri:item}} style={{width:'100%',height:200 , marginVertical:10}} resizeMode='stretch' />
       }}/>
     </View>
